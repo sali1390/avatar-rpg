@@ -4,7 +4,7 @@ $(document).ready(function(){
     
     
     //Selects all characters and moves them to Enemies Div
-    $(".charactersAvail").children('div').on("click", function(){
+    $(".charactersAvail").find('div').on("click", function(){
         //$('.charactersAvail').addClass('enemiesAvail');
         var otherChars = document.getElementsByClassName('charactersAvail');
         $('#enemiesAvail').append(otherChars);
