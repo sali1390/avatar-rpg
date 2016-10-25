@@ -16,8 +16,9 @@ $(document).ready(function(){
         console.log(currentChar);
     });
     
-    //Attempting to single out remaining characters
+    //Attempting to single out remaining characters to select for 'Defender'
     $("#enemiesAvail").find('div').on("click", function(){
+        
         if ($(this).is("aang")) {
 			$("#defender").append("#aang");
 		} else if ($(this).is("azula")) {
@@ -27,10 +28,6 @@ $(document).ready(function(){
 		} else if ($(this).is("katara")) {
 			$("#defender").append("#katara");
 		}
-        
-//        var pick = $(this).attr('id');
-//        var yourPick = document.getElementById(pick);
-//        $('#defender').append(yourPick)
         
         console.log(this);
     });
