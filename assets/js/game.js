@@ -1,42 +1,40 @@
 $(document).ready(function(){
-    var currentChar = "";
-    var currentEnemy = "";
+    var currentChar, currentEnemy, characterHealth, enemyAttack;
     
     $("#charactersAvail").find('div').on("click", function(){
-//        var pick = $(this).attr('id');
-//        var currentChar = document.getElementById(pick);
-//        if ($(this).attr('id')) {   
-//            $('#yourCharacter').append($(this).attr('id'))
-//        }
-//        else {
-//            $(".charactersAvail").find('div').appendTo('#enemiesAvail');
-//        }
-        
         //Selects all characters and moves them to 'Enemies'
         $("#charactersAvail").find('div').appendTo('#enemiesAvail');
         
         //Moves character that is clicked on to 'Your Character'
         var pick = $(this).attr('id');
-        var currentChar = document.getElementById(pick);
+        currentChar = document.getElementById(pick);
         
         $('#yourCharacter').append(currentChar)
         
-        console.log("User Pick: " + pick);
-    });
+        console.log("Pick: " + pick);
+        
+        //Attempting to single out remaining characters to select for 'Defender'
+        $("#enemiesAvail").find('div').on("click", function(){
+            var pick = $(this).attr('id');
+            currentEnemy = document.getElementById(pick);
+
+            $('#defender').append(currentEnemy);
+
+            console.log("Enemy: " + pick);
+        });
+    }); 
     
-    //Attempting to single out remaining characters to select for 'Defender'
-    $("#enemiesAvail").find('div').on("click", function(){
-        
-        if ($(this).has("#charAang")) {
-			$("#defender").append("#charAang");
-		} else if ($(this).has("#charAzula")) {
-			$("#defender").append("#charAzula");
-		} else if ($(this).has("#charZuko")) {
-			$("#defender").append("#charZuko");
-		} else if ($(this).has("#charKatara")) {
-			$("#defender").append("#charKatara");
-		}
-        
+    $("#attackButton").on("click", function(){
+//        characterHealth = $('#yourCharacter').find('.health').val;
+//        enemyAttack = $('#defender').val;
+//        
+//        console.log($('#yourCharacter'));
+//        console.log(enemyAttack);
+//
+//        characterHealth = parseInt(characterHealth);
+//        enemyAttack = parseInt(enemyAttack);
+//        
+//        characterHealth -= enemyAttack;
         console.log(this);
     });
 });                  

@@ -1,7 +1,7 @@
 @font-face {font-family: 'Herculanum'; src: url(../fonts/herculanum.ttf);}
 
 body {
-    background: url("../images/");
+    background: url("../images/bg.jpg");
     -webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -17,11 +17,13 @@ body {
 .bodyHeader h2 {
     font-family: 'Herculanum', sans-serif;
     text-align: center;
+    color: #000;
 }
 
 .bodyText h4{
     font-family: 'Herculanum', sans-serif;
-    font-size: 25px;
+    font-size: 30px;
+    color: #000;
 }
 
 .charBox {
