@@ -2,17 +2,13 @@ $(document).ready(function(){
     var currentChar = "";
     var currentEnemy = "";
     
-    
-    //Selects all characters and moves them to Enemies Div
     $(".charactersAvail").find('div').on("click", function(){
-        //$('.charactersAvail').addClass('enemiesAvail');
-        var otherChars = document.getElementsByClassName('charactersAvail');
-        $('#enemiesAvail').append(otherChars);
+        //Selects all characters and moves them to 'Enemies'
+        $(".charactersAvail").find('div').appendTo('#enemiesAvail');
         
-        //Moves character that is selected to 'Your Character'
+        //Moves character that is clicked on to 'Your Character'
         var pick = $(this).attr('id');
         var currentChar = document.getElementById(pick);
-        //$(currentChar).removeClass('enemiesAvail');
         
         $('#yourCharacter').append(currentChar)
         
@@ -36,6 +32,6 @@ $(document).ready(function(){
 //        var yourPick = document.getElementById(pick);
 //        $('#defender').append(yourPick)
         
-        console.log(pick);
+        console.log(this);
     });
 });                  
