@@ -1,0 +1,32 @@
+@font-face {font-family: 'Herculanum'; src: url(../fonts/herculanum.ttf);}
+
+body {
+    background: url("../images/");
+    -webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+.bodyHeader img {
+    width: 350px;
+    display: block;
+    margin: 0 auto;
+}
+
+.bodyHeader h2 {
+    font-family: 'Herculanum', sans-serif;
+    text-align: center;
+}
+
+.bodyText h4{
+    font-family: 'Herculanum', sans-serif;
+    font-size: 25px;
+}
+
+.char {
+    border: solid 3px lightblue;
+    text-align: center;
+    background: #ffffff;
+}
+
