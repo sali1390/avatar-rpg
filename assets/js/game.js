@@ -114,6 +114,14 @@ $(document).ready(function(){
 //                  console.log("Enemy attack: " + enemyAttack)
                 }
             });
+//            if ($('#enemiesAvail') = undefined) {
+//                $("#gameInfo1").html("You have defeated all enemies. You Win!");
+//                $("#gameInfo2").html('<button type="submit" class="btn btn-default btn-success" style="margin-top: 15px;" id="restartButton">RESTART GAME</button>');
+//
+//                $("#restartButton").on("click", function(){
+//                    resetGame();
+//                });
+//            });
         } 
     });
 
