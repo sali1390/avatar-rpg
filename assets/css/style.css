@@ -6,6 +6,7 @@ body {
   	-moz-background-size: cover;
   	-o-background-size: cover;
   	background-size: cover;
+    padding: 0 15px;
 }
 
 .bodyHeader img {
@@ -20,10 +21,13 @@ body {
     color: #000;
 }
 
-.bodyText h4{
+h3, h5 {
     font-family: 'Herculanum', sans-serif;
-    font-size: 30px;
     color: #000;
+}
+
+h5 {
+    font-size: 20px;
 }
 
 .charBox {
@@ -31,4 +35,20 @@ body {
     text-align: center;
     background: #ffffff;
 }
+
+.gameInfo {
+    margin: 15px 0;
+}
+
+#gameInfo1, #gameInfo2 {
+    font-family: 'Herculanum', sans-serif;
+    color: #fff;
+    font-size: 20px;
+}
+
+img {
+    width: 150px;
+}
+
+
 
