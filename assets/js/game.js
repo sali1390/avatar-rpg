@@ -2,10 +2,7 @@ $(document).ready(function(){
     var currentChar, currentEnemy, characterHealth, characterAttack, enemyHealth, enemyAttack;
     
     function resetGame() {
-        currentChar = null;
-        currentEnemy = null;
-        var gameClone = $("#rpgGame").clone();
-        $("#rpgGame").replaceWith(gameClone.clone());
+        window.location.reload();
     }
 
     $('.charBox').on("click", function(){        
