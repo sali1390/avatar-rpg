@@ -1,18 +1,17 @@
 $(document).ready(function(){   
     var currentChar, currentEnemy, characterHealth, characterAttack, enemyHealth, enemyAttack;
     
-//    $("<div>").attr("class", "col-md-3 charBox").attr("id", "charAang2").appendTo("#charactersAvail");
-//    $('<p>').html("Aang").appendTo("#charAang2");
-    var pick ;
-    var all_characters = ['charAzula','charZuko','charAang','charKatara'];
-    var enemy;
-    $('.charBox').on("click", function(e){
-//        //Selects all characters and moves them to 'Enemies'
-//        $("#charactersAvail").find('div').appendTo('#enemiesAvail');
-//        
-//        e.stopPropagation();
+    function resetGame() {
+        currentChar = null;
+        currentEnemy = null;
+        var gameClone = $("#rpgGame").clone();
+        $("#rpgGame").replaceWith(gameClone.clone());
+    }
+
+    $('.charBox').on("click", function(){        
+        //Checks to see if a character has been chosen yet. If not, use element clicked
         if(currentChar == null){
-            //Moves character that is clicked on to 'Your Character'
+            //Moves character that is clicked on to 'Your Character', moves the others to 'Enemies Available' 
             currentChar = $(this).attr('id');
             
             $('#' + currentChar).appendTo('#yourCharacter');
@@ -25,7 +24,9 @@ $(document).ready(function(){
             console.log("Character health: " + characterHealth)
             console.log("Character attack: " + characterAttack)
         }
-        $('.charBox').on("click", function(e){
+        //Event handler to target Enemy
+        $('.charBox').on("click", function(){
+            //Checks to see if an enemy has been chosen yet. If not, use element clicked
             if(currentEnemy == null){
                 currentEnemy = $(this).attr('id');
 
@@ -38,14 +39,8 @@ $(document).ready(function(){
                 console.log("Enemy attack: " + enemyAttack)
             }
         }); 
-//        return false;
     }); 
-    
-//    //Attempting to single out remaining characters to select for 'Defender'
-//    $("#enemiesAvail").find('div').on("click", function(){
-//        
-//    });
-//    
+     
     $("#attackButton").on("click", function(){
         //Changes values from string to integers
         characterAttack = parseInt(characterAttack)
@@ -54,19 +49,55 @@ $(document).ready(function(){
         enemyHealth = parseInt(enemyHealth);
         
         
-        console.log("Character Health: " + characterHealth);
-        console.log("Enemy Attack: " + enemyAttack);
-        console.log("Enemy Health: " + enemyHealth);
-        console.log("Character Attack: " + characterAttack);
+//        console.log("Character Health: " + characterHealth);
+//        console.log("Enemy Attack: " + enemyAttack);
+//        console.log("Enemy Health: " + enemyHealth);
+//        console.log("Character Attack: " + characterAttack);
         
-        //Subtracts attacks from healths
+//        var attackMultiplier = 0;
+//        console.log("attack multiplier " + attackMultiplier);
+//        
+//        characterAttack = characterAttack + (characterAttack * attackMultiplier++);
+//        console.log("with multiplier " + characterAttack);
+//        
+        //Subtracts attacks from healths for both character and enemy
         characterHealth -= enemyAttack;
         enemyHealth -= characterAttack;
-        console.log("Character Health: " + characterHealth);
-        console.log("Enemy Health: " + enemyHealth);
+//        console.log("Character Health: " + characterHealth);
+//        console.log("Enemy Health: " + enemyHealth);
         
-        $("#gameInfo").html("You have attacked " + currentEnemy + " for " + characterAttack + " points.").append(
-            currentEnemy + " has attacked you for " + enemyAttack + " points.");
+        $('#' + currentChar).children('p').html(characterHealth);
+        $('#' + currentEnemy).children('p').html(enemyHealth);
         
+        $("#gameInfo1").html("You have attacked " + currentEnemy + " for " + characterAttack + " points.")
+        $("#gameInfo2").html(currentEnemy + " has attacked you for " + enemyAttack + " points.");
+        
+        if (characterHealth <= 0) {
+            $("#gameInfo1").html("You have been defeated by " + currentEnemy + ". You Lose!");
+            $("#gameInfo2").html('');
+//            resetGame();
+             
+        } else if (enemyHealth <= 0) {
+            $("#gameInfo1").html("You have defeated " + currentEnemy + ". Select another enemy.");
+            $("#gameInfo2").html('');
+            $('#defender').html('');
+            currentEnemy = null;
+            
+            $('.charBox').on("click", function(){
+            //Checks to see if an enemy has been chosen yet. If not, use element clicked
+                if(currentEnemy == null){
+                    currentEnemy = $(this).attr('id');
+
+                    $('#' + currentEnemy).appendTo('#defender');
+
+                    enemyHealth = $(this).data("health");
+                    enemyAttack = $(this).data("attack");
+
+//                    console.log("Enemy health: " + enemyHealth)
+//                    console.log("Enemy attack: " + enemyAttack)
+                }
+            });
+//            resetGame();
+        }
     });
 });                  
