@@ -74,7 +74,11 @@ $(document).ready(function(){
         
         if (characterHealth <= 0) {
             $("#gameInfo1").html("You have been defeated by " + currentEnemy + ". You Lose!");
-            $("#gameInfo2").html('<button type="submit" class="btn btn-default btn-success" id="restartButton">RESTART GAME</button>');
+            $("#gameInfo2").html('<button type="submit" class="btn btn-default btn-success" style="margin-top: 15px;" id="restartButton">RESTART GAME</button>');
+            
+            $("#restartButton").on("click", function(){
+                resetGame();
+            });
              
         } else if (enemyHealth <= 0) {
             $("#gameInfo1").html("You have defeated " + currentEnemy + ". Select another enemy.");
@@ -99,5 +103,4 @@ $(document).ready(function(){
         }
     });
     
-    $("#resetButton").on("click", function(){
 });                  
