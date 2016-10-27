@@ -18,6 +18,8 @@ $(document).ready(function(){
             characterHealth = $(this).data("health");
             characterAttack = $(this).data("attack");
             
+            console.log(currentChar);
+            
             console.log("Character health: " + characterHealth)
             console.log("Character attack: " + characterAttack)
         }
@@ -51,11 +53,26 @@ $(document).ready(function(){
 //        console.log("Enemy Health: " + enemyHealth);
 //        console.log("Character Attack: " + characterAttack);
         
-//        var attackMultiplier = 0;
-//        console.log("attack multiplier " + attackMultiplier);
-//        
-//        characterAttack = characterAttack + (characterAttack * attackMultiplier++);
-//        console.log("with multiplier " + characterAttack);
+        //Defines characters attack value and increments the attack value of the chosen character
+        if (currentChar == 'aang') {
+            characterAttack += 10;
+        } else if (currentChar == 'azula') {
+            characterAttack += 25;
+        } else if (currentChar == 'zuko') {
+            characterAttack += 15;
+        } else if (currentChar == 'katara') {
+            characterAttack += 20;
+        }
+        
+        if (currentEnemy == 'aang') {
+            enemyAttack = 10;
+        } else if (currentEnemy == 'azula') {
+            enemyAttack = 25;
+        } else if (currentEnemy == 'zuko') {
+            enemyAttack = 15;
+        } else if (currentEnemy == 'katara') {
+            enemyAttack = 20;
+        }
 //        
         //Subtracts attacks from healths for both character and enemy
         characterHealth -= enemyAttack;
@@ -93,11 +110,11 @@ $(document).ready(function(){
                     enemyHealth = $(this).data("health");
                     enemyAttack = $(this).data("attack");
 
-//                    console.log("Enemy health: " + enemyHealth)
-//                    console.log("Enemy attack: " + enemyAttack)
+//                  console.log("Enemy health: " + enemyHealth)
+//                  console.log("Enemy attack: " + enemyAttack)
                 }
             });
-        }
+        } 
     });
-    
+
 });                  
