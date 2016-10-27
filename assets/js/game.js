@@ -17,11 +17,7 @@ $(document).ready(function(){
             
             characterHealth = $(this).data("health");
             characterAttack = $(this).data("attack");
-            
-            console.log(currentChar);
-            
-            console.log("Character health: " + characterHealth)
-            console.log("Character attack: " + characterAttack)
+
         }
         //Event handler to target Enemy
         $('.charBox').on("click", function(){
@@ -34,8 +30,6 @@ $(document).ready(function(){
                 enemyHealth = $(this).data("health");
                 enemyAttack = $(this).data("attack");
                 
-                console.log("Enemy health: " + enemyHealth)
-                console.log("Enemy attack: " + enemyAttack)
             }
         }); 
     }); 
@@ -114,16 +108,20 @@ $(document).ready(function(){
 //                  console.log("Enemy attack: " + enemyAttack)
                 };
             });
-        }
-    });
-//    
-//    if (!$.trim($('#enemiesAvail')).is(':empty')) {
-//        $("#gameInfo1").html("You have defeated all enemies. You Win!");
-//        $("#gameInfo2").html('<button type="submit" class="btn btn-default btn-success" style="margin-top: 15px;" id="restartButton">RESTART GAME</button>');
-//
-//        $("#restartButton").on("click", function(){
-//            resetGame();
-//        });
-//    };
+            if ($('#enemiesAvail').is(':empty')) {
+                $("#gameInfo1").html("You have defeated all enemies. You Win!");
+                $("#gameInfo2").html('<button type="submit" class="btn btn-default btn-success" style="margin-top: 15px;" id="restartButton">RESTART GAME</button>');
 
+                $("#restartButton").on("click", function(){
+                    resetGame();
+                });
+            };
+        }
+        
+        console.log("Current Character: " + currentChar);
+        console.log("Character health: " + characterHealth)
+        console.log("Character attack: " + characterAttack)
+        console.log("Enemy health: " + enemyHealth)
+        console.log("Enemy attack: " + enemyAttack)
+    });
 });                  
