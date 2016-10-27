@@ -24,6 +24,8 @@ body {
 h3, h5 {
     font-family: 'Herculanum', sans-serif;
     color: #000;
+    text-shadow: 1px 1px 2px #fff;
+    font-weight: bold;
 }
 
 h5 {
@@ -40,15 +42,16 @@ h5 {
     margin: 15px 0;
 }
 
-#gameInfo1, #gameInfo2 {
+#gameInfo1, #gameInfo2, btn {
     font-family: 'Herculanum', sans-serif;
+    font-weight: bold;
     color: #fff;
     font-size: 20px;
+    text-shadow: 1px 1px 2px #000;
 }
 
-img {
-    width: 150px;
+.logo img{
+    width: 280px;
 }
-
 
 
